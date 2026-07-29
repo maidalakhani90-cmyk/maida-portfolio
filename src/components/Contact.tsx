@@ -30,16 +30,16 @@ export const Contact: React.FC = () => {
 
   try {
     await emailjs.send(
-      "service_ao4l5bb",          // Service ID
-      "template_fz9wsk8",         // Template ID
-      {
-        name: formData.name,
-        email: formData.email,
-        title: formData.subject,
-        message: formData.message,
-      },
-      "KDHfTRMYd75EBP_Jk"          // Public Key
-    );
+  "service_gcjlmyp",
+  "template_fz9wsk8",
+  {
+    name: formData.name,
+    email: formData.email,
+    title: formData.subject,
+    message: formData.message,
+  },
+  "KDHfTRMYd75EBP_Jk"
+);
 
     console.log(result);
 
