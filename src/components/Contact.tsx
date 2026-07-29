@@ -3,18 +3,18 @@ import { motion } from 'motion/react';
 import { Mail, Github, Linkedin, Copy, Check, Send, Sparkles, MessageSquare, ArrowUpRight } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { PERSONAL_INFO } from '../data/portfolioData';
-
+import emailjs from "@emailjs/browser";
 export const Contact: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  });
+ const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  subject: '',
+  message: ''
+});
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
@@ -22,22 +22,48 @@ export const Contact: React.FC = () => {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
+  
+  const handleSubmit = async (e: React.FormEvent) => {
+    console.log("handleSubmit running");
+  e.preventDefault();
+  setIsSubmitting(true);
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      confetti({
-        particleCount: 80,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitted(false), 5000);
-    }, 1000);
-  };
+  try {
+    await emailjs.send(
+      "service_gcjlmyp",          // Service ID
+      "template_fz9wsk8",         // Template ID
+      {
+        name: formData.name,
+        email: formData.email,
+        title: formData.subject,
+        message: formData.message,
+      },
+      "KDHfTRMYd75EBP_Jk"          // Public Key
+    );
+
+    console.log(result);
+
+    confetti({
+      particleCount: 80,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+
+    setTimeout(() => setSubmitted(false), 5000);
+  } catch (error) {
+    alert("Message failed to send.");
+    console.error(error);
+  }
+
+  setIsSubmitting(false);
+};
 
   return (
     <section id="contact" className="py-20 md:py-28 bg-[#0B0B0B] border-t border-white/[0.08] relative">
@@ -156,7 +182,13 @@ export const Contact: React.FC = () => {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form
+  onSubmit={(e) => {
+    console.log("Form Submitted");
+    handleSubmit(e);
+  }}
+  className="space-y-4"
+>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-medium text-[#A1A1AA] mb-1.5">
