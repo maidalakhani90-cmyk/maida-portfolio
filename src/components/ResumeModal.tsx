@@ -78,7 +78,14 @@ Currently mastering Machine Learning models, Deep Learning, and Agentic AI workf
                 <Printer className="w-3.5 h-3.5" />
                 Print / Save PDF
               </button>
-
+<a
+  href="/Maida-Lakhani-Resume.pdf"
+  download
+  className="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-xs font-semibold text-black transition-colors flex items-center gap-1.5"
+>
+  <Download className="w-3.5 h-3.5" />
+  Download PDF
+</a>
               <button
                 onClick={onClose}
                 className="p-1.5 rounded-lg bg-[#202020] text-[#A1A1AA] hover:text-white border border-white/10"
