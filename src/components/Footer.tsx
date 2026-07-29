@@ -24,7 +24,7 @@ export const Footer: React.FC = () => {
               className="relative w-56 h-56 sm:w-64 sm:h-64 rounded-2xl bg-[#171717] border border-white/10 p-3 shadow-2xl overflow-hidden group hover:border-white/20 transition-all"
             >
               <img
-                src="/src/assets/images/maida_footer_character_1785156455101.jpg"
+                src="/maida_footer_character_1785156455101.jpg"
                 alt="Maida Lakhani Sitting with Laptop and Coffee"
                 className="w-full h-full object-cover rounded-xl filter contrast-[1.03] transition-transform duration-500 group-hover:scale-105"
                 referrerPolicy="no-referrer"

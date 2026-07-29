@@ -104,7 +104,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
               {/* Character Base Image */}
               <div className="relative w-full h-full rounded-3xl bg-[#171717]/60 border border-white/[0.08] p-3 shadow-2xl backdrop-blur-sm overflow-hidden flex items-center justify-center group-hover:border-white/20 transition-all duration-500">
                 <img
-                  src="/src/assets/images/maida_hero_character_1785156439564.jpg"
+                  src="/maida_hero_character_1785156439564.jpg"
                   alt="Maida Lakhani 3D Vector Character"
                   className="w-full h-full object-cover rounded-2xl filter contrast-[1.03] transition-all duration-500 group-hover:scale-105"
                   referrerPolicy="no-referrer"
