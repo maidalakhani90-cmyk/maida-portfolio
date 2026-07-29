@@ -210,13 +210,14 @@ export const Hero: React.FC<HeroProps> = ({ onOpenResume }) => {
                 View Projects
               </a>
 
-              <button
-                onClick={onOpenResume}
-                className="px-6 py-3 rounded-xl bg-[#202020] hover:bg-[#282828] text-white text-sm font-medium border border-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5"
-              >
-                <FileText className="w-4 h-4 text-[#A1A1AA]" />
-                Download Resume
-              </button>
+              <a
+  href="/Maida-Lakhani-Resume.pdf"
+  download
+  className="px-6 py-3 rounded-xl bg-[#202020] hover:bg-[#282828] text-white text-sm font-medium border border-white/10 hover:border-white/20 transition-all flex items-center justify-center gap-2 shadow-md hover:-translate-y-0.5"
+>
+  <FileText className="w-4 h-4 text-[#A1A1AA]" />
+  Download Resume
+</a>
 
               <a
                 href="#contact"
